@@ -17,7 +17,7 @@ const business_detailSchema = new Schema({
         required: true,
     },
     b_amount:{
-        type: integer,
+        type: number,
         required: true,
     },
     
