@@ -17,6 +17,7 @@ const employee_detailSchema = new Schema({
     },
     start_date:{
         type: Date,
+        default:Date.now(),
         required: true,
     },
     end_date:{
@@ -29,4 +30,4 @@ const employee_detailSchema = new Schema({
     }
 })
 
-export default mongoose.model("employee-details", bookSchema)
+export default mongoose.model("employee-details", employee_detailSchema)
