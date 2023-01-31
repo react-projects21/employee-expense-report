@@ -30,4 +30,4 @@ const employee_detailSchema = new Schema({
     }
 })
 
-export default mongoose.model("employee-details", employee_detailSchema)
+export default mongoose.model("employeeDetails", employee_detailSchema)
