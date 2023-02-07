@@ -1,19 +1,22 @@
 import login from "../models/login";
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 
 export const getAlluser = async (req, res, next) => {
-    let emplogin;
+    let users;
     try{
-        emplogin= await login.find();
+        users= await login.find();
     }catch(err){
         console.log(err);
     }
 
-    if (!emplogin){
+    if (!users){
         return res.ststus(404).json({ message: "No Users Found"});
     }
-    return res.status(200).json({emplogin})
+    return res.status(200).json({users})
 };
+
+
+
 export const signup = async (req,res, next) => {
     const {email , password} = req.body;
     let existingUser;
@@ -26,12 +29,11 @@ export const signup = async (req,res, next) => {
         return res.status(400).json({message: "user already existed"})
     }
       
-    const hashedPassword = bcrypt.hashSync(password);
+    // const hashedPassword = bcrypt.hashSync(password);
     const user = new login({
-       
         email,
-        password: hashedPassword,
-        blogs:[],
+        password
+        // blogs:[],
     });
     
     try{
@@ -42,11 +44,11 @@ export const signup = async (req,res, next) => {
     return res.status(201).json({user})
 }
  
-export const employeeslogin = async (req, res, next) => {
+export const login = async (req, res, next) => {
     const {email, password} = req.body;
     let existingUser;
     try{
-        existingUser = await employeeslogin.findOne({ email });
+        existingUser = await login.findOne({ email });
     } catch (err){
         return console.log(err);
     }

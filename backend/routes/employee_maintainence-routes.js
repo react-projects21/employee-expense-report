@@ -1,11 +1,11 @@
 import express from "express";
-import { addEmployee , updateEmployee , getById , deleteEmployee, getAllEmployee} from "../controllers/student-controller.js";
-const employeeRouter = express.Router();
+import { addEmployee , updateEmployee , getById , deleteEmployee, getAllEmployes} from "../controllers/employee_maintainence-controller";
+const maintainenceRouter = express.Router();
  
-employeeRouter.get("/", getAllEmployee);
-employeeRouter.post("/add",addEmployee);
-employeeRouter.put('/update/:id',updateEmployee);
-employeeRouter.get("/:id", getById);
-employeeRouter.delete("/:id",deleteEmployee);
+maintainenceRouter.get("/", getAllEmployes);
+maintainenceRouter.post("/add",addEmployee);
+maintainenceRouter.put('/update/:id',updateEmployee);
+maintainenceRouter.get("/:id", getById);
+maintainenceRouter.delete("/:id",deleteEmployee);
 
-export default employeeRouter;
+export default maintainenceRouter;
