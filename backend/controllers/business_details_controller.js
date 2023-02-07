@@ -21,7 +21,7 @@ export const addBusinessExp = async (req, res, next) => {
     b_date,
     b_amount,
     name_or_comp_name,
-    trensaction,
+    transaction,
   } = req.body;
   const businessExp = new business_details({
     serial_number,
@@ -29,7 +29,7 @@ export const addBusinessExp = async (req, res, next) => {
     b_date,
     b_amount,
     name_or_comp_name,
-    trensaction,
+    transaction,
   });
   try {
     await businessExp.save();
@@ -45,7 +45,7 @@ export const updatebusinessExp = async (req, res, next) => {
     b_date,
     b_amount,
     name_or_comp_name,
-    trensaction,
+    transaction,
   } = req.body;
   const businessExpId = req.params.id;
   let businessExp;
@@ -58,7 +58,7 @@ export const updatebusinessExp = async (req, res, next) => {
         b_date,
         b_amount,
         name_or_comp_name,
-        trensaction,
+        transaction,
       }
     );
   } catch (err) {
