@@ -1,6 +1,6 @@
-import employee_maintainence from "../models/employee_maintainence";
+import employee_maintainence from "../models/employee_maintainence.js";
 
-export const getAllEpmloyee = async (req, res, next) => {
+export const getAllEmployes = async (req, res, next) => {
     let employee;
     try{
         employee =await employee_maintainence.find();

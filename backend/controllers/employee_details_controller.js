@@ -1,9 +1,9 @@
-import employeeDetails from "../models/employee_details.js ";
+import employee_details from "../models/employee_details";
 
 export const getEveryEmployeeDetails = async (req, res, next) =>{
     let emp_details;
     try{
-        emp_details =await employee-details.find();
+        emp_details =await employee_details.find();
     } catch (err){
         return console.log(err)
     }
@@ -16,7 +16,7 @@ export const getEveryEmployeeDetails = async (req, res, next) =>{
 
 export const addEmployee = async (req, res, next) => {
     const {expense_id , notes , charge_type , start_date , end_date , submit_rep} = req.body
-    const employee = new Employee({
+    const employee = new employee_details({
         expense_id , 
         notes , 
         charge_type , 
