@@ -42,7 +42,7 @@ export const signup = async (req,res, next) => {
         console.log(err);
     }
     return res.status(201).json({user})
-}
+};
  
 export const login = async (req, res, next) => {
     const {email, password} = req.body;
