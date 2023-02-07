@@ -13,7 +13,7 @@ const business_detailSchema = new Schema({
         required: true
     },
     b_date:{
-        type: Date,
+        type: Number,
         required: true,
     },
     b_amount:{
