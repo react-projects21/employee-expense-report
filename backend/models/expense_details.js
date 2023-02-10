@@ -5,15 +5,15 @@ const Schema = mongoose.Schema;
 const expenseDetailsSchema = new Schema ({
     serial_no:{
         type: Number,
-        required: true
+        // required: true
     },
     exp_id:{
         type: Number,
-        required: true
+        // required: true
     },
     e_date:{
-        type: Date,
-        default:Date.now(),
+        type: Number,
+        // default:Date.now(),
         required: true,
     },
     location:{
@@ -48,11 +48,7 @@ const expenseDetailsSchema = new Schema ({
         type: String,
         required: true,
     },
-    view_file:{
-        Type:String,
-        data:Buffer
-        
-    }
+   
 })
 
 export default mongoose.model("Expense Detail",expenseDetailsSchema);

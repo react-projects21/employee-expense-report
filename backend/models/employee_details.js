@@ -16,12 +16,12 @@ const employee_detailSchema = new Schema({
         required: true,
     },
     start_date:{
-        type: Date,
-        default:Date.now(),
+        type: Number,
+        // default:Date.now(),
         required: true,
     },
     end_date:{
-        type: Date,
+        type: Number,
         required: true,
     },
     submit_rep:{
