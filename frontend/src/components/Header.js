@@ -1,39 +1,80 @@
-import React from "react";
-import { AppBar, Button, Toolbar, Box } from "@mui/material";
-import exp from './images/exp.png'
-import './Header.css';
+import React, { useState } from "react";
+import {
+  AppBar,
+  Box,
+  Button,
+  Tab,
+  Tabs,
+  Toolbar
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import exp from '../components/images/exp.png'
+
 const Header = () => {
+  const [value, setValue] = useState();
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  // const [issignup, setIsSignup] = useState(false);
   return (
     <AppBar
       position="sticky"
       sx={{
         background:
-          "linear-gradient(90deg, rgba(62,16,13,1) 11%, rgba(61,205,186,1) 55%, rgba(8,26,99,1) 100%)",
+          "linear-gradient(90deg, rgba(36,0,0,1) 0%, rgba(40,115,150,1) 46%, rgba(0,212,255,1) 100%)",
       }}
     >
       <Toolbar>
-        {/* <Typography variant="h5">Expense Report</Typography> */}
-        <img className="exp" src={exp} alt='expense'></img>
+        <img src={exp} alt='jay' />
+        {/* <Typography variant="h5">EXPENSE REPORT</Typography> */}
+        {isLoggedIn && (
+          <Box display="flex" marginLeft={"auto"} marginRight={"auto"}>
+            <Tabs
+              textColor="inherit"
+              value={value}
+              onChange={(e, val) => setValue(val)}
+            >
+              <Tab LinkComponent={Link} to="/details" label="Employee" />
+            </Tabs>
+          </Box>
+        )}
         <Box display="flex" marginLeft="auto">
-          {/* <Button
-            variant="contained"
-            sx={{ margin: 1, borderRadius: 10 }}
-            color="warning"
-          >
-            Login
-          </Button> */}
-
-          <Button
-            variant="contained"
-            sx={{ margin: 1, borderRadius: 10 }}
-            color="warning"
-            className="signup"
-          >
-            Signup
-          </Button>
+          {!isLoggedIn && (
+            <>
+              {/* <Button
+                LinkComponent={Link}
+                to="/auth"
+                variant="contained"
+                sx={{ margin: 1, borderRadius: 10 }}
+                color="warning"
+              >
+                Login
+              </Button>
+              <Button
+                LinkComponent={Link}
+                to="/auth"
+                variant="contained"
+                sx={{ margin: 1, borderRadius: 10 }}
+                color="warning"
+              >
+                Signup
+              </Button> */}
+            </>
+          )}
+          {isLoggedIn && (
+            <Button
+              LinkComponent={Link}
+              to="/auth"
+              variant="contained"
+              sx={{ margin: 1, borderRadius: 10 }}
+              color="warning"
+            >
+              Logout
+            </Button>
+          )}
         </Box>
       </Toolbar>
     </AppBar>
   );
 };
+
 export default Header;

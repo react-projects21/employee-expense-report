@@ -1,21 +1,23 @@
-import './App.css';
-import Header from './components/Header';
-import React from 'react';
-import Auth from './components/Auth';
-import { Route,Routes } from 'react-router-dom';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import Auth from './components/Auth'
+import Header from './components/Header'
 
-function App() {
+const App = () => {
+  const isLoggedIn = useSelector((state)=>state.isLoggedIn)
+  console.log(isLoggedIn);
   return <React.Fragment>
     <header>
-      <Header/>
+    <Header/>
+    <Auth/>
     </header>
-    <main>
+    {/* <main>
       <Routes>
-        <Route path="/auth" element={<Auth />}/>
+      <Route path='/auth' element={<Auth/>}/> 
       </Routes>
-    </main>
+    </main> */}
   </React.Fragment>
-   
-};
+    
+}
 
-export default App;
+export default App
