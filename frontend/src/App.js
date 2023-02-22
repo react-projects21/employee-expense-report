@@ -1,10 +1,21 @@
-import React from 'react'
-import Register from './componennts/Register'
+import './App.css';
+import Header from './components/Header';
+import React from 'react';
+import Auth from './components/Auth';
+import { Route,Routes } from 'react-router-dom';
 
-const App = () => {
-  return (
-    <Register/>
-  )
-}
+function App() {
+  return <React.Fragment>
+    <header>
+      <Header/>
+    </header>
+    <main>
+      <Routes>
+        <Route path="/auth" element={<Auth />}/>
+      </Routes>
+    </main>
+  </React.Fragment>
+   
+};
 
-export default App
+export default App;

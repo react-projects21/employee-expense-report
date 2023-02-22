@@ -61,7 +61,7 @@ export const getById = async (req, res , next) => {
     let employee;
     try{
         employee = await book.findById(id);
-    } catch(err){
+    } catch(err){ 
         return console.log(err);
     }
     if (!employee){
